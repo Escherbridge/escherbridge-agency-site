@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:1x.tech)",
+      "WebSearch",
+      "Bash(npm install:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx --version:*)",
+      "Bash(npm --version:*)",
+      "Bash(/c/Program Files/nodejs/npm install)",
+      "Bash(test:*)",
+      "Bash(npm.cmd install:*)",
+      "Bash(npm.cmd run build:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}

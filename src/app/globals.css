@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-white text-black;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-foreground-subtle rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-foreground-muted;
+  }
+}
+
+@layer components {
+  /* Brutalist link style */
+  .link-brutal {
+    @apply relative inline-block;
+  }
+
+  .link-brutal::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-full h-[2px] bg-white;
+    @apply origin-left scale-x-0 transition-transform duration-300;
+  }
+
+  .link-brutal:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Grid overlay for Swiss design debugging */
+  .grid-overlay {
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 8rem 8rem;
+  }
+}
+
+@layer utilities {
+  /* Text balance for headings */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
