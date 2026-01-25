@@ -18,6 +18,18 @@ export const metadata: Metadata = {
     "healthcare technology",
   ],
   authors: [{ name: "Ahmed Zaher" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    title: "Escher",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

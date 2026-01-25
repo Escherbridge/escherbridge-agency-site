@@ -22,7 +22,7 @@ export function Tessellation({ className, opacity = 0.03 }: TessellationProps) {
 
   return (
     <motion.div
-      className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)}
+      className={cn("absolute inset-0 overflow-hidden rotate-12 pointer-events-none", className)}
       style={{ y }}
     >
       <svg
