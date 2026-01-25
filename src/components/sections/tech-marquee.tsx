@@ -19,10 +19,14 @@ const technologies = [
   "GCP",
   "Rust",
   "Elixir",
+  "Clojure",
   "Next.js",
   "Tailwind CSS",
   "Power BI",
   "SQL Server",
+  "Data Engineering",
+  "ETL Pipelines",
+  "Data Warehousing",
   "Azure Synapse",
 ];
 
@@ -44,7 +48,7 @@ export function TechMarquee() {
             x: {
               repeat: Infinity,
               repeatType: "loop",
-              duration: 10,
+              duration: 20,
               ease: "linear",
             },
           }}

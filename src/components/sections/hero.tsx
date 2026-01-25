@@ -1,16 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import { Application } from "@splinetool/runtime";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Tessellation } from "@/components/escher/tessellation";
-
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-});
 
 const MINIMUM_LOADING_TIME = 3000; // 3 seconds minimum to show the animation
 
@@ -18,6 +14,7 @@ export function Hero() {
   const [isLoading, setIsLoading] = useState(true);
   const [splineReady, setSplineReady] = useState(false);
   const [minTimeElapsed, setMinTimeElapsed] = useState(false);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,9 +29,18 @@ export function Hero() {
     }
   }, [splineReady, minTimeElapsed]);
 
-  const handleSplineLoad = () => {
-    setSplineReady(true);
-  };
+  useEffect(() => {
+    if (!canvasRef.current) return;
+    const app = new Application(canvasRef.current);
+    app
+      .load("https://prod.spline.design/zUDJuO5pDJZpyV-m/scene.splinecode")
+      .then(() => {
+        setSplineReady(true);
+      });
+    return () => {
+      app.dispose();
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -126,10 +132,9 @@ export function Hero() {
             className="flex justify-center mb-grid-8"
           >
             <div className="w-full">
-              <Spline
-                style={{ background: "transparent" }}
-                scene="https://prod.spline.design/zUDJuO5pDJZpyV-m/scene.splinecode"
-                onLoad={handleSplineLoad}
+              <canvas
+                ref={canvasRef}
+                style={{ width: "100%", height: "auto", background: "transparent" }}
               />
             </div>
           </motion.div>
@@ -139,7 +144,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 30 : 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-display-xl md:text-display-2xl text-balance mb-grid-6"
+            className="font-display text-display-xl md:text-display-xl text-balance mb-grid-6"
           >
             Building Bridges Between{" "}
             <span className="relative">
@@ -162,7 +167,7 @@ export function Hero() {
             className="font-body text-body-lg md:text-heading-md text-foreground-muted max-w-2xl mx-auto mb-grid-8"
           >
             Software architecture and development consultancy transforming
-            complex challenges into elegant, scalable solutions.
+            complex challenges into elegant, scalable solutions. Aiding enterprises, businesses, and startups in navigating complex digital landscapes with expertise, ease, and innovation.  
           </motion.p>
 
           {/* CTA buttons */}
