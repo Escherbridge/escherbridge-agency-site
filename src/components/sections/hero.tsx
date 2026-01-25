@@ -33,7 +33,7 @@ export function Hero() {
     if (!canvasRef.current) return;
     const app = new Application(canvasRef.current);
     app
-      .load("https://prod.spline.design/zUDJuO5pDJZpyV-m/scene.splinecode")
+      .load("https://prod.spline.design/5f4mZhX5Kg-Qpwk5/scene.splinecode")
       .then(() => {
         setSplineReady(true);
       });
@@ -123,67 +123,71 @@ export function Hero() {
       <Tessellation opacity={0.04} />
 
       <Container className="relative z-10 py-grid-16">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Logo - Spline 3D Scene */}
+        <div className="grid md:grid-cols-2 md:items-center md:gap-8">
+          {/* Spline 3D Scene */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: isLoading ? 0 : 1, scale: isLoading ? 0.8 : 1 }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center mb-grid-8"
+            className="flex justify-center mt-16 mb-8 md:mt-0 md:mb-0 md:order-2"
           >
-            <div className="w-full">
+            <div className="w-full max-w-[400px] aspect-square md:max-w-[500px] lg:max-w-[600px] overflow-visible">
               <canvas
                 ref={canvasRef}
-                style={{ width: "100%", height: "auto", background: "transparent" }}
+                className="w-full h-full touch-none"
+                style={{ background: "transparent" }}
               />
             </div>
           </motion.div>
 
-          {/* Main headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 30 : 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-display-xl md:text-display-xl text-balance mb-grid-6"
-          >
-            Building Bridges Between{" "}
-            <span className="relative">
-              Vision
-              <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-white"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: isLoading ? 0 : 1 }}
-                transition={{ duration: 0.6, delay: 1 }}
-              />
-            </span>{" "}
-            and Code
-          </motion.h1>
+          {/* Text content */}
+          <div className="text-center md:text-left md:order-1">
+            {/* Main headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 30 : 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="font-display text-display-xl md:text-display-xl text-balance mb-grid-6"
+            >
+              Building Bridges Between{" "}
+              <span className="relative inline-block">
+                Vision
+                <motion.span
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-white origin-left"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: isLoading ? 0 : 1 }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                />
+              </span>{" "}
+              and Code
+            </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 20 : 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="font-body text-body-lg md:text-heading-md text-foreground-muted max-w-2xl mx-auto mb-grid-8"
-          >
-            Software architecture and development consultancy transforming
-            complex challenges into elegant, scalable solutions. Aiding enterprises, businesses, and startups in navigating complex digital landscapes with expertise, ease, and innovation.  
-          </motion.p>
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 20 : 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="font-body text-body-lg md:text-heading-md text-foreground-muted max-w-2xl mb-grid-8"
+            >
+              Software architecture and development consultancy transforming
+              complex challenges into elegant, scalable solutions. Aiding enterprises, businesses, and startups in navigating complex digital landscapes with expertise, ease, and innovation.
+            </motion.p>
 
-          {/* CTA buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 20 : 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-grid-4 justify-center"
-          >
-            <Button size="lg" asChild>
-              <Link href="#contact">Start a Project</Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href="#portfolio">View Work</Link>
-            </Button>
-          </motion.div>
+            {/* CTA buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isLoading ? 0 : 1, y: isLoading ? 20 : 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-col sm:flex-row gap-grid-4 justify-center md:justify-start"
+            >
+              <Button size="lg" asChild>
+                <Link href="#contact">Start a Project</Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="#portfolio">View Work</Link>
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </Container>
 

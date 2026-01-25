@@ -41,11 +41,10 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <Image
-              src="/logo.png"
+              src="/LogoTransparentWhite.svg"
               alt="Escherbridge"
               width={40}
               height={40}
-              className="invert"
             />
             <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
               ESCHERBRIDGE
