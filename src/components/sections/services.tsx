@@ -16,7 +16,7 @@ const services = [
     ),
     title: "Software Development",
     description:
-      "Full-stack development with modern technologies. From MVPs to enterprise systems, delivering robust and maintainable code.",
+      "Full-stack development with TypeScript, React, Svelte, Python, .NET, and more -- I'm truly language agnostic. Enterprise APIs, web applications, and cross-platform solutions and integrations.",
   },
   {
     id: "architecture",
@@ -29,7 +29,7 @@ const services = [
     ),
     title: "Architecture Design",
     description:
-      "Scalable system design, microservices, cloud infrastructure, and technical roadmaps that grow with your business.",
+      "Cloud infrastructure, API gateways, microservices, and enterprise system design with CI/CD pipelines.",
   },
   {
     id: "consulting",
@@ -42,7 +42,7 @@ const services = [
     ),
     title: "Technical Consulting",
     description:
-      "Code reviews, tech stack evaluation, performance optimization, and engineering best practices guidance.",
+      "Platform modernization, enterprise technology service transformation, Agile implementation, and performance optimization for enterprise teams.",
   },
   {
     id: "fractional-cto",
@@ -55,7 +55,7 @@ const services = [
     ),
     title: "Fractional CTO",
     description:
-      "Strategic technical leadership for startups. Build teams, define processes, and ship products that scale.",
+      "Strategic technical leadership for startups and nonprofits. Define architecture, build teams, and deliver products.",
   },
 ];
 

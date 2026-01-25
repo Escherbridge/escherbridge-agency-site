@@ -11,7 +11,13 @@
       "Bash(test:*)",
       "Bash(npm.cmd install:*)",
       "Bash(npm.cmd run build:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "WebFetch(domain:ahmedzaher.net)",
+      "Bash(tree:*)",
+      "WebFetch(domain:ahmedzaher.vercel.app)",
+      "Bash(if not exist \"c:\\\\Users\\\\atooz\\\\Documents\\\\Escherbridge\\\\escherbridge-agency-site\\\\content\\\\projects\" mkdir \"c:\\\\Users\\\\atooz\\\\Documents\\\\Escherbridge\\\\escherbridge-agency-site\\\\content\\\\projects\")",
+      "Bash(powershell -Command:*)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

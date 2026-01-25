@@ -5,10 +5,10 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 
 const highlights = [
-  "10+ years in software engineering",
-  "AI/ML and healthcare technology expertise",
-  "Startup to enterprise experience",
-  "Full-stack architecture specialist",
+  "7+ years in software engineering",
+  "Full-stack: TypeScript, React, Svelte, .NET",
+  "Cloud & DevOps: Azure, AWS, Docker",
+  "Enterprise systems & API architecture",
 ];
 
 export function About() {
@@ -70,22 +70,22 @@ export function About() {
           >
             <div className="lg:border-l-3 lg:border-white lg:pl-grid-8 space-y-grid-6">
               <p className="text-body-lg text-foreground">
-                With over a decade of experience building software systems across
-                healthcare, fintech, and enterprise domains, I specialize in
-                transforming complex technical challenges into elegant, scalable
-                solutions.
+                I build enterprise web APIs, data-driven applications, and scalable
+                systems serving hundreds of thousands of users. My expertise spans
+                .NET Core, Azure, React, and modern cloud infrastructure with a
+                focus on platform modernization and performance.
               </p>
               <p className="text-body-lg text-foreground-muted">
-                My approach combines deep technical expertise with strategic
-                thinking. Whether architecting AI-powered platforms, leading
-                engineering teams, or advising on technical strategy, I focus on
-                delivering real business value through thoughtful software design.
+                My projects range from AI-powered agentic systems and VR health
+                experiences to cross-platform applications built with Rust, Elixir,
+                and TypeScript. I also deliver architecture and consulting services
+                for startups and nonprofits seeking technical leadership.
               </p>
               <p className="text-body-lg text-foreground-muted">
-                Escherbridge was founded on the principle that the best software
-                bridges the gap between vision and reality—creating systems that
-                are not just functional, but truly transformative for the
-                organizations they serve.
+                Escherbridge bridges the gap between vision and reality—whether
+                modernizing legacy systems, architecting scalable APIs, or building
+                innovative products that create real impact for organizations and
+                their users.
               </p>
             </div>
           </motion.div>
