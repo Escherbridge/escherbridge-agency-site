@@ -3,9 +3,8 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/ahmedzaher" },
-  { label: "GitHub", href: "https://github.com/ahmedzaher" },
-  { label: "Twitter", href: "https://twitter.com/ahmedzaher" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/ahmedux" },
+  { label: "GitHub", href: "https://github.com/JadeZaher" },
 ];
 
 const navLinks = [
@@ -25,11 +24,10 @@ export function Footer() {
             <div className="md:col-span-2">
               <Link href="/" className="flex items-center gap-3 mb-grid-4">
                 <Image
-                  src="/logo.png"
+                  src="/LogoTransparentWhite.svg"
                   alt="Escherbridge"
                   width={32}
                   height={32}
-                  className="invert"
                 />
                 <span className="font-display font-bold text-lg tracking-tight">
                   ESCHERBRIDGE

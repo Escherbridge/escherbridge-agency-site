@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { submitContact } from "@/app/actions/contact";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -32,7 +31,7 @@ const inquiryOptions = [
 ];
 
 const budgetOptions = [
-  { value: "", label: "Select budget range (optional)" },
+  { value: "", label: "Budget (Optional)" },
   { value: "<10k", label: "Under $10,000" },
   { value: "10k-25k", label: "$10,000 - $25,000" },
   { value: "25k-50k", label: "$25,000 - $50,000" },
@@ -62,8 +61,23 @@ export function Contact() {
     setSubmitStatus("idle");
 
     try {
-      const result = await submitContact(data);
-      if (result.success) {
+      const formData = new FormData();
+      formData.append("Name", data.name);
+      formData.append("Email", data.email);
+      formData.append("Company", data.company || "");
+      formData.append("Inquiry Type", inquiryOptions.find(o => o.value === data.inquiryType)?.label || data.inquiryType);
+      formData.append("Budget", budgetOptions.find(o => o.value === data.budget)?.label || "");
+      formData.append("Message", data.message);
+
+      const response = await fetch(
+        "https://public.herotofu.com/v1/2858b9a0-fa01-11f0-8489-f9acc2041a3e",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
         setSubmitStatus("success");
         reset();
       } else {
@@ -102,10 +116,10 @@ export function Contact() {
                   Email
                 </h3>
                 <a
-                  href="mailto:hello@escherbridge.com"
+                  href="mailto:contact@ahmedzaher.net"
                   className="text-foreground-muted hover:text-white transition-colors link-brutal"
                 >
-                  hello@escherbridge.com
+                  contact@ahmedzaher.net
                 </a>
               </div>
               <div>
@@ -201,6 +215,14 @@ export function Contact() {
                     error={errors.message?.message}
                     {...register("message")}
                   />
+
+                  {/* HeroTofu honeypot spam protection */}
+                  <div
+                    style={{ textIndent: "-99999px", whiteSpace: "nowrap", overflow: "hidden", position: "absolute" }}
+                    aria-hidden="true"
+                  >
+                    <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
+                  </div>
 
                   {submitStatus === "error" && (
                     <p className="text-red-500 text-body-sm">

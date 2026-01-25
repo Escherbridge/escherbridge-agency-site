@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Container } from "@/components/ui/container";
 
 const highlights = [
-  "7+ years in software engineering",
+  "10+ years in software engineering",
   "Full-stack: TypeScript, Javascript (NodeJS, React, Svelte, Vue), Python, Svelte, .NET",
   "Cloud & DevOps: Azure, GCP, Vercel, Railway, AWS, Docker",
   "Enterprise systems, Networking & Software architecture, Blockchain development",
