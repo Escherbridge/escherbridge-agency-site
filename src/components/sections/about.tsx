@@ -6,9 +6,9 @@ import { Container } from "@/components/ui/container";
 
 const highlights = [
   "7+ years in software engineering",
-  "Full-stack: TypeScript, React, Svelte, .NET",
-  "Cloud & DevOps: Azure, AWS, Docker",
-  "Enterprise systems & API architecture",
+  "Full-stack: TypeScript, Javascript (NodeJS, React, Svelte, Vue), Python, Svelte, .NET",
+  "Cloud & DevOps: Azure, GCP, Vercel, Railway, AWS, Docker",
+  "Enterprise systems, Networking & Software architecture, Blockchain development",
 ];
 
 export function About() {
@@ -72,17 +72,18 @@ export function About() {
               <p className="text-body-lg text-foreground">
                 I build enterprise web APIs, data-driven applications, and scalable
                 systems serving hundreds of thousands of users. My expertise spans
-                .NET Core, Azure, React, and modern cloud infrastructure with a
+                .NET Core, Azure, NodeJs, SvelteKit, Python, and modern cloud infrastructure with a
                 focus on platform modernization and performance.
               </p>
               <p className="text-body-lg text-foreground-muted">
                 My projects range from AI-powered agentic systems and VR health
-                experiences to cross-platform applications built with Rust, Elixir,
-                and TypeScript. I also deliver architecture and consulting services
+                experiences to cross-platform applications built with metaverse projects. 
+                I also deliver architecture and consulting services
                 for startups and nonprofits seeking technical leadership.
               </p>
               <p className="text-body-lg text-foreground-muted">
-                Escherbridge bridges the gap between vision and reality—whether
+                Escherbridge makes the impossible possible with counter intuitive insights that
+                takes vision from fantasy to reality—whether
                 modernizing legacy systems, architecting scalable APIs, or building
                 innovative products that create real impact for organizations and
                 their users.
