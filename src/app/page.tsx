@@ -5,13 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { SplineHeroPanel } from "@/components/escher/spline-hero-panel";
 import { Contact } from "@/components/sections/contact";
 import { getAllProjects } from "@/lib/projects";
-
-const practices = [
-  ["01", "Product engineering", "From ambiguous premise to a legible, working product — interaction design, architecture, and production code in one continuous loop."],
-  ["02", "AI + emerging systems", "Local-first AI, spatial computing, distributed architecture, and practical interfaces that make complex behavior observable."],
-  ["03", "Technical consulting", "Focused architecture, modernization, and delivery guidance for teams navigating a difficult build or an inflection point."],
-  ["04", "Fractional CTO", "Hands-on technical stewardship for startups and mission-driven organizations that need senior judgment without a full-time executive hire."],
-];
+import { practices } from "@/lib/practices";
 
 export default function Home() {
   const projects = getAllProjects().filter((project) => project.featured);
@@ -49,10 +43,10 @@ export default function Home() {
 
         <section id="services" className="practice-list">
           <div className="section-heading"><p className="section-index">(PRACTICE / 03)</p><h2>Ways of working</h2></div>
-          {practices.map(([number, title, copy]) => (
-            <article key={number}>
-              <span>{number}</span><h3>{title}</h3><p>{copy}</p><i aria-hidden="true">↘</i>
-            </article>
+          {practices.map((practice) => (
+            <Link className="practice-row" href={`/practice/${practice.slug}`} key={practice.slug}>
+              <span>{practice.number}</span><h3>{practice.title}</h3><p>{practice.summary}</p><i aria-hidden="true">↘</i>
+            </Link>
           ))}
         </section>
 
