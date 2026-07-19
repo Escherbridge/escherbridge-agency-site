@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { BreakableTitle } from "@/components/escher/breakable-title";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
 
 export function generateStaticParams() { return getAllProjects().map(({ slug }) => ({ slug })); }
@@ -26,7 +27,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <section className="case-hero">
         <div className="case-hero-copy">
           <p className="eyebrow">Retrospective / {project.date}</p>
-          <h1 className="project-title">{project.title}</h1>
+          <BreakableTitle as="h1" className="project-title" title={project.title} />
           <p className="case-deck">{project.tagline}</p>
           <div className="case-meta"><span>{project.role}</span>{project.technologies.map((technology) => <span key={technology}>[{technology}]</span>)}</div>
         </div>
