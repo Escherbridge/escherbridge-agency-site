@@ -4,11 +4,14 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { SplineHeroPanel } from "@/components/escher/spline-hero-panel";
 import { Contact } from "@/components/sections/contact";
+import { ProjectCarousel } from "@/components/sections/project-carousel";
 import { getAllProjects } from "@/lib/projects";
 import { practices } from "@/lib/practices";
 
 export default function Home() {
-  const projects = getAllProjects().filter((project) => project.featured);
+  const projects = getAllProjects();
+  const tickerItems = ["Product Engineering","AI Systems","Creative Technology","Distributed Architecture","TypeScript","React","Svelte",".NET","Python","Node.js","Azure","AWS","Docker","Solana","Algorand","PostgreSQL","MongoDB","GCP","Rust","Elixir","Clojure","Next.js","Tailwind CSS","Power BI","SQL Server","Data Engineering","ETL Pipelines","Data Warehousing","Azure Synapse"];
+  const tickerText = `${tickerItems.join(" ✳ ")} ✳ `;
 
   return (
     <>
@@ -29,7 +32,7 @@ export default function Home() {
         </section>
 
         <section className="ticker" aria-label="Capabilities">
-          <div>PRODUCT ENGINEERING ✳ AI SYSTEMS ✳ CREATIVE TECHNOLOGY ✳ DISTRIBUTED ARCHITECTURE ✳</div>
+          <div><span>{tickerText}</span><span aria-hidden="true">{tickerText}</span></div>
         </section>
 
         <section className="manifesto page-grid">
@@ -51,16 +54,8 @@ export default function Home() {
         </section>
 
         <section id="work" className="project-section">
-          <div className="section-heading light"><p className="section-index">(SELECTED WORK / 04)</p><h2>Built things,<br /><em>reconsidered.</em></h2><Link href="/work">View full archive →</Link></div>
-          <div className="project-grid">
-            {projects.map((project, index) => (
-              <Link href={`/work/${project.slug}`} className={`project-card project-tone-${index % 3} project-visual-${index % 6}`} key={project.slug}>
-                <div className="project-geometry" aria-hidden="true"><span /><span /><span /><span /><span /><span /></div>
-                <div className="project-meta"><span>{String(index + 1).padStart(2, "0")} / {project.date}</span><span>{project.technologies.slice(0, 2).join(" + ")}</span></div>
-                <h3>{project.title}</h3><p>{project.tagline}</p><b>Read retrospective ↗</b>
-              </Link>
-            ))}
-          </div>
+          <div className="section-heading light"><p className="section-index">(FULL ARCHIVE / 04)</p><h2>Built things,<br /><em>reconsidered.</em></h2><Link href="/work">Browse the index →</Link></div>
+          <ProjectCarousel projects={projects} />
         </section>
 
         <figure className="signal-image">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -30,7 +31,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <div className="case-meta"><span>{project.role}</span>{project.technologies.map((technology) => <span key={technology}>[{technology}]</span>)}</div>
         </div>
         <div className={`case-hero-art project-visual-${visualVariant}`} aria-hidden="true">
-          <div className="project-geometry"><span /><span /><span /><span /><span /><span /></div>
+          <div className="project-art"><Image src={project.image} alt="" fill priority sizes="(max-width: 800px) 100vw, 42vw" /></div>
         </div>
       </section>
       <section className="case-body">
