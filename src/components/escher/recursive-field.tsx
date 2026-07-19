@@ -1,6 +1,11 @@
 export function RecursiveField() {
   return <div className="recursive-field" aria-hidden="true">
-    <div className="impossible-frame frame-a"><div className="impossible-frame frame-b"><div className="impossible-frame frame-c"><div className="impossible-frame frame-d"><span>EB</span></div></div></div></div>
-    <div className="orbit-label orbit-one">DESIGN → CODE</div><div className="orbit-label orbit-two">IDEA → SYSTEM</div>
+    <div className="bridge-field">
+      <span className="bridge-bank bank-left" /><span className="bridge-bank bank-right" />
+      <span className="bridge-deck deck-near" /><span className="bridge-deck deck-far" />
+      <span className="bridge-pier pier-one" /><span className="bridge-pier pier-two" />
+      <span className="bridge-node node-one" /><span className="bridge-node node-two" /><span className="bridge-node node-three" />
+    </div>
+    <div className="orbit-label orbit-one">VISION / 01</div><div className="orbit-label orbit-two">CODE / 02</div>
   </div>;
 }

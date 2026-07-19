@@ -53,9 +53,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontDisplay.variable} ${fontHeading.variable} ${fontBody.variable} ${fontMono.variable} dark`}
+      data-scroll-behavior="smooth"
+      className={`${fontDisplay.variable} ${fontHeading.variable} ${fontBody.variable} ${fontMono.variable}`}
     >
-      <body className="min-h-screen bg-background">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -91,7 +91,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-grid-16">
+    <section id="contact" className="contact-form-section relative py-grid-16">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-grid-12">
           {/* Left column - Info */}

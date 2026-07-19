@@ -2,13 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { RecursiveField } from "@/components/escher/recursive-field";
+import { SplineHeroPanel } from "@/components/escher/spline-hero-panel";
+import { Contact } from "@/components/sections/contact";
 import { getAllProjects } from "@/lib/projects";
 
 const practices = [
-  ["01", "Product systems", "From ambiguous premise to a legible, working product — interaction design, architecture, and production code in one continuous loop."],
-  ["02", "AI infrastructure", "Local-first context, agent orchestration, persistent memory, and practical interfaces that make model behavior observable."],
-  ["03", "Spatial + distributed", "Real-time graphics, peer-to-peer systems, graph models, and digital twins designed around difficult coordination problems."],
+  ["01", "Product engineering", "From ambiguous premise to a legible, working product — interaction design, architecture, and production code in one continuous loop."],
+  ["02", "AI + emerging systems", "Local-first AI, spatial computing, distributed architecture, and practical interfaces that make complex behavior observable."],
+  ["03", "Technical consulting", "Focused architecture, modernization, and delivery guidance for teams navigating a difficult build or an inflection point."],
+  ["04", "Fractional CTO", "Hands-on technical stewardship for startups and mission-driven organizations that need senior judgment without a full-time executive hire."],
 ];
 
 export default function Home() {
@@ -21,14 +23,14 @@ export default function Home() {
         <section className="hero-plate">
           <div className="hero-copy">
             <p className="eyebrow">Independent software studio / Boise + distributed</p>
-            <h1>Systems for<br /><em>strange loops.</em></h1>
+            <h1>Building bridges<br /><em>between vision</em><br />and code.</h1>
             <p className="hero-deck">Escherbridge turns ambitious ideas into software with a point of view — across AI, spatial computing, decentralized systems, and the web.</p>
             <div className="hero-actions">
               <Link className="brutal-button" href="/work">Enter the archive <span>↗</span></Link>
               <Link className="text-link" href="#contact">Start a conversation →</Link>
             </div>
           </div>
-          <RecursiveField />
+          <SplineHeroPanel />
           <p className="plate-caption">FIG. 01 / A BRIDGE THAT RETURNS TO ITSELF</p>
         </section>
 
@@ -58,8 +60,8 @@ export default function Home() {
           <div className="section-heading light"><p className="section-index">(SELECTED WORK / 04)</p><h2>Built things,<br /><em>reconsidered.</em></h2><Link href="/work">View full archive →</Link></div>
           <div className="project-grid">
             {projects.map((project, index) => (
-              <Link href={`/work/${project.slug}`} className={`project-card project-tone-${index % 3}`} key={project.slug}>
-                <div className="project-geometry" aria-hidden="true"><span /><span /><span /></div>
+              <Link href={`/work/${project.slug}`} className={`project-card project-tone-${index % 3} project-visual-${index % 6}`} key={project.slug}>
+                <div className="project-geometry" aria-hidden="true"><span /><span /><span /><span /><span /><span /></div>
                 <div className="project-meta"><span>{String(index + 1).padStart(2, "0")} / {project.date}</span><span>{project.technologies.slice(0, 2).join(" + ")}</span></div>
                 <h3>{project.title}</h3><p>{project.tagline}</p><b>Read retrospective ↗</b>
               </Link>
@@ -78,10 +80,11 @@ export default function Home() {
           <div className="portrait-type" aria-hidden="true">AZ<br /><span>∞</span></div>
         </section>
 
-        <section id="contact" className="contact-plate">
+        <section className="contact-plate">
           <p className="eyebrow">Have a difficult thing worth making?</p><h2>Let’s make the<br />impossible <em>legible.</em></h2>
           <a className="contact-email" href="mailto:contact@ahmedzaher.net">contact@ahmedzaher.net ↗</a>
         </section>
+        <Contact />
       </main>
       <Footer />
     </>
