@@ -1,69 +1,20 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-
-const projectsDirectory = path.join(process.cwd(), "content/projects");
-
 export interface Project {
-  slug: string;
-  title: string;
-  tagline: string;
-  description: string;
-  technologies: string[];
-  url?: string;
-  image?: string;
-  highlights?: string[];
-  featured?: boolean;
-  date: string;
-  content: string;
+  slug:string; title:string; tagline:string; description:string; technologies:string[]; url:string; image?:string; highlights:string[]; featured:boolean; date:string; role:string; question:string; reflection:string;
 }
 
-export function getProjectSlugs(): string[] {
-  try {
-    return fs
-      .readdirSync(projectsDirectory)
-      .filter((file) => file.endsWith(".md"))
-      .map((file) => file.replace(/\.md$/, ""));
-  } catch {
-    return [];
-  }
-}
+const projects:Project[] = [
+  {slug:"fractalengine",title:"Fractal Engine",tagline:"A peer-to-peer world engine for shared spatial realities.",description:"A decentralized 3D digital-twin platform that combines Bevy ECS, CRDT synchronization, and peer-to-peer networking. Escherbridge developed Fractal Engine as an exploration of spaces that remain coherent without a central owner.",technologies:["Rust","Bevy ECS","CRDT","P2P"],url:"https://github.com/Escherbridge/fractalengine",highlights:["Decentralized scene synchronization","Entity-component spatial model","Local-first collaboration"],featured:true,date:"2026",role:"Development + systems architecture",question:"How can a shared 3D world retain structure when authority is distributed?",reflection:"Fractal Engine treats the world model as a negotiation rather than a file. The enduring design lesson is that multiplayer architecture begins with a theory of ownership: what may diverge, what must converge, and what each peer can know."},
+  {slug:"azoa",title:"AZOA",tagline:"Autonomous zones of action across chains, agents, and identities.",description:"A cross-chain action and identity orchestration platform organized around holonic architecture, graph data, and DAG operations. Escherbridge developed AZOA to explore agency at multiple nested scales.",technologies:["Graph systems","DAG","Web3","Agents"],url:"https://github.com/JadeZaher/azoa-autonomous-zones-of-action",highlights:["Holonic domain architecture","Cross-chain action orchestration","Graph-native identity"],featured:true,date:"2026",role:"Development + product architecture",question:"Can identity and action remain composable without collapsing into one centralized hierarchy?",reflection:"The project reframed orchestration as nested autonomy. Its most useful insight was architectural: boundaries do not only separate components; they determine which kinds of agency remain possible."},
+  {slug:"neos",title:"NEOS",tagline:"An operating environment for autonomous coordination.",description:"NEOS brings autonomous agents, tools, and workflows into a coherent operating model. Escherbridge developed NEOS; Ahmed deployed the public PrimusNeo presentation and its NEOS companion site.",technologies:["TypeScript","Agents","Orchestration","Web"],url:"https://github.com/JadeZaher/NEOS",highlights:["Composable agent operations","Human-readable workflow surfaces","Deployed at neos.primusneo.com"],featured:true,date:"2026",role:"Development + deployment",question:"What should an interface for autonomous work reveal to the human in the loop?",reflection:"NEOS pushed the interface away from chat-as-product and toward an operating surface. The retrospective lesson is to make state, authority, and handoffs visible; autonomy becomes useful when it remains inspectable."},
+  {slug:"ardanova",title:"ArdaNova",tagline:"A platform for work, funding, equity, and circular participation.",description:"A gamified decentralized cooperative connecting crowdfunding, freelancing, multi-stakeholder equity, and an internal circular economy.",technologies:["Next.js",".NET","PostgreSQL","Algorand"],url:"https://github.com/Escherbridge/Ardanova",highlights:["Multi-stakeholder participation","Integrated work and funding flows","Circular economy mechanics"],featured:true,date:"2026",role:"Product engineering",question:"What changes when a project platform accounts for contribution, ownership, and exchange together?",reflection:"ArdaNova’s complexity came from relationships, not screens. The work reinforced a core practice: map incentives and state transitions before polishing the interface that sits above them."},
+  {slug:"scrt-cli",title:"scrt CLI",tagline:"Token-budgeted codebase retrieval with a persistent mind palace.",description:"A local-first context engine for searching source, command output, and research without flooding an AI workflow’s context window.",technologies:["Rust","CLI","Retrieval","Local-first"],url:"https://github.com/JadeZaher/scrt-cli",highlights:["Token-budgeted result windows","Persistent named research stashes","Local-first code intelligence"],featured:true,date:"2026",role:"Creator + engineer",question:"How can an AI coding workflow remember more while reading less?",reflection:"scrt treats context as a scarce design material. The key shift was from maximizing retrieval to shaping it: the right evidence, at the right resolution, with a durable path back to the source."},
+  {slug:"logseq-ai-hub",title:"Logseq AI Hub",tagline:"Persistent autonomous workflows inside a graph notebook.",description:"A Logseq plugin orchestration layer for autonomous AI workflows with persistent memory, designed around the notebook as a durable context surface.",technologies:["Logseq","TypeScript","AI agents","Knowledge graphs"],url:"https://github.com/Escherbridge/logseq-ai-hub",highlights:["Notebook-native agent workflows","Persistent memory","Graph-based context"],featured:true,date:"2026",role:"Plugin development + architecture",question:"What if agents inhabited the knowledge environment instead of living in a separate chat window?",reflection:"Putting orchestration inside Logseq made memory tangible. Notes could function simultaneously as interface, evidence, and durable state—a more legible substrate for long-running work."},
+  {slug:"surrealforge",title:"SurrealForge",tagline:"A typed .NET toolkit for working safely with SurrealDB.",description:"A .NET SurrealDB toolkit spanning schema and migration tooling plus a Roslyn analyzer that identifies unsafe interpolated SurrealQL.",technologies:[".NET","SurrealDB","Roslyn","Tooling"],url:"https://github.com/Escherbridge/surrealforge",highlights:["Schema and migration tooling","Unsafe query analysis","Typed .NET developer experience"],featured:false,date:"2026",role:"Developer tooling",question:"How can a flexible graph database gain the safeguards expected in a production .NET workflow?",reflection:"SurrealForge is a reminder that powerful primitives need equally thoughtful guardrails. The analyzer makes a hidden risk visible at authoring time, where correction is least expensive."},
+  {slug:"scrt-evolve",title:"scrt-evolve",tagline:"A self-supervised improvement loop for context retrieval.",description:"A fine-tuning and evaluation pipeline that extends scrt with self-supervised evolution, using retrieval outcomes as material for improvement.",technologies:["Python","Machine learning","Evaluation","Retrieval"],url:"https://github.com/JadeZaher/scrt-evolve",highlights:["Self-supervised training loop","Retrieval quality evaluation","Paired with the scrt context engine"],featured:false,date:"2026",role:"ML systems development",question:"Can a retrieval tool learn from the work it already performs without surrendering local control?",reflection:"The project separates adaptation from spectacle. Improvement requires a measurable feedback loop, carefully formed training material, and a stable baseline—not just a model call added to a pipeline."},
+  {slug:"plantgeo",title:"PlantGeo",tagline:"A geospatial platform for regional and environmental intelligence.",description:"An interactive MapLibre, deck.gl, and Three.js platform spanning routing, geocoding, realtime layers, environmental data, and AI-assisted regional analysis.",technologies:["MapLibre","deck.gl","PostGIS","TimescaleDB"],url:"https://github.com/Escherbridge/plantgeo",highlights:["3D geospatial visualization","Routing and geocoding","Realtime environmental analysis"],featured:false,date:"2025",role:"Geospatial product engineering",question:"How can many layers of regional data become one navigable decision surface?",reflection:"PlantGeo reinforced that maps are arguments, not backgrounds. Layer hierarchy, time, and interaction determine whether complex geographic evidence becomes insight or noise."},
+  {slug:"primusneo",title:"PrimusNeo",tagline:"A deployed public identity for an emerging technical world.",description:"A high-contrast web presence and companion NEOS experience designed and deployed by Escherbridge, establishing the visual reference point for this portfolio’s editorial-brutalist direction.",technologies:["Web design","Deployment","Creative direction","Next.js"],url:"https://primusneo.com/",highlights:["Designed and deployed by Escherbridge","Companion NEOS site","Distinctive digital identity"],featured:false,date:"2025",role:"Design + deployment",question:"How can a technical platform communicate atmosphere before explanation?",reflection:"PrimusNeo showed that technical credibility and visual character can reinforce one another. Its best move is editorial: establish a world, then let the detail arrive in layers."},
+];
 
-export function getProjectBySlug(slug: string): Project | null {
-  try {
-    const fullPath = path.join(projectsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
-    const { data, content } = matter(fileContents);
-
-    return {
-      slug,
-      title: data.title || "",
-      tagline: data.tagline || "",
-      description: data.description || "",
-      technologies: data.technologies || [],
-      url: data.url || undefined,
-      image: data.image || undefined,
-      highlights: data.highlights || undefined,
-      featured: data.featured || false,
-      date: data.date || "",
-      content,
-    };
-  } catch {
-    return null;
-  }
-}
-
-export function getAllProjects(): Project[] {
-  const slugs = getProjectSlugs();
-  const projects = slugs
-    .map((slug) => getProjectBySlug(slug))
-    .filter((project): project is Project => project !== null)
-    .sort((a, b) => {
-      // Featured projects first, then by date
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
-  return projects;
-}
+export const getAllProjects = () => projects;
+export const getProjectSlugs = () => projects.map(({slug}) => slug);
+export const getProjectBySlug = (slug:string) => projects.find((project)=>project.slug===slug) ?? null;

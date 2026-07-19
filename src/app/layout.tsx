@@ -3,12 +3,13 @@ import { fontDisplay, fontHeading, fontBody, fontMono } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://escherbridge.com"),
   title: {
     default: "Escherbridge | Software Consultancy",
     template: "%s | Escherbridge",
   },
   description:
-    "Software development, architecture, and fractional CTO services. Building bridges between vision and code.",
+    "Ahmed Zaher's independent software studio for AI systems, spatial computing, distributed architecture, and distinctive digital products.",
   keywords: [
     "software consultancy",
     "fractional CTO",
@@ -34,10 +35,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Escherbridge",
-    images: [{ url: "/LogoOnWhite.png", width: 1200, height: 630 }],
+    title: "Escherbridge — Systems for strange loops",
+    description: "Independent product engineering by Ahmed Zaher.",
+    images: [{ url: "/images/escherbridge-recursive-infrastructure.png", width: 1536, height: 1024 }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/images/escherbridge-recursive-infrastructure.png"],
   },
 };
 
