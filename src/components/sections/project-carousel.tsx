@@ -26,7 +26,7 @@ export function ProjectCarousel({ projects }: { projects: Project[] }) {
   const project = projects[active];
   const previous = projects[(active - 1 + total) % total];
   const next = projects[(active + 1) % total];
-  const transition = reducedMotion ? { duration: 0 } : { duration: .48, ease: [0.22, 1, 0.36, 1] as const };
+  const transition = reducedMotion ? { duration: 0 } : { duration: .72, ease: [0.22, 1, 0.36, 1] as const };
 
   return (
     <div className="project-carousel" aria-roledescription="carousel" aria-label="Project archive" tabIndex={0} onKeyDown={(event) => { if (event.key === "ArrowRight") { event.preventDefault(); select(active + 1); } if (event.key === "ArrowLeft") { event.preventDefault(); select(active - 1); } }}>
