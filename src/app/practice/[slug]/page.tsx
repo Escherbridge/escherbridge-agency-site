@@ -15,7 +15,7 @@ export default async function PracticePage({ params }: { params: Promise<{ slug:
   const practice = getPractice((await params).slug);
   if (!practice) notFound();
   return <><Header /><main className="subpage practice-page">
-    <section className="practice-hero"><p className="eyebrow">Practice / {practice.number}</p><h1>{practice.title}</h1><p className="practice-deck">{practice.summary}</p></section>
+    <section className="practice-hero"><p className="eyebrow">Practice / {practice.number}</p><h1 className=" text-wrap text-body-lg">{practice.title}</h1><p className="practice-deck">{practice.summary}</p></section>
     <section className="practice-story"><aside><span>{practice.number}</span><p>A field note on how the work moves from premise to practice.</p></aside><article>
       <p className="eyebrow">01 / The premise</p><h2>Begin with the shape of the problem.</h2><p className="practice-lede">{practice.premise}</p>
       <p className="eyebrow">02 / How the engagement works</p><ol>{practice.approach.map((item) => <li key={item}>{item}</li>)}</ol>
