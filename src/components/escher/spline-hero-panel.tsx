@@ -64,7 +64,7 @@ export function SplineHeroPanel() {
         </div>
       )}
 
-      <div className={`spline-panel ${sceneReady ? "is-ready" : ""}`}>
+      <div className={`spline-panel sm:touch-none pointer-events-none sm:pointer-events-auto ${sceneReady ? "is-ready" : ""}`}>
         <div className="spline-tile-field" aria-hidden="true" />
         <canvas ref={canvasRef} className="spline-canvas" aria-label="Interactive Escherbridge spatial sculpture" />
       </div>
