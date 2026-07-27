@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EscherBridge — Business Card Contact Sheet</title>
+<style>
+  /* letter sheet for one-shot printing of all three variants */
+  @page { size: letter; margin: .5in; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #181810; color: #eeeae0; font-family: Arial, sans-serif; min-height: 100vh; }
+  header { display: flex; justify-content: space-between; align-items: baseline; padding: 24px 32px 16px; border-bottom: 2px solid #eeeae0; }
+  h1 { font-family: "Arial Black", Arial, sans-serif; font-weight: 900; font-size: 18px; letter-spacing: -.02em; }
+  h1 span { color: #e34b2f; }
+  .meta { font-family: "Courier New", monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+  .print-btn { font-family: "Courier New", monospace; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; background: #e34b2f; color: #fff; border: 0; padding: 8px 16px; cursor: pointer; margin-left: 16px; }
+  .sheet { display: flex; gap: 24px; justify-content: center; align-items: flex-start; padding: 32px; flex-wrap: wrap; }
+  .cell { text-align: center; }
+  .cell iframe { width: 2in; height: 3.5in; border: 0; display: block; background: #0a0a08; box-shadow: 0 6px 30px rgba(0,0,0,.5); }
+  .cell label { display: block; margin-top: 10px; font-family: "Courier New", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(238,234,224,.6); }
+  @media print {
+    body { background: #fff; }
+    header { border-color: #0a0a08; color: #0a0a08; padding: 0 0 12px; }
+    .print-btn, .meta .screen-only { display: none; }
+    .sheet { padding: 24px 0 0; gap: .25in; flex-wrap: nowrap; }
+    .cell iframe { box-shadow: none; outline: .5pt dashed #999; }  /* cut guide */
+    .cell label { color: #555; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>ESCHERBRIDGE <span>/</span> BUSINESS CARDS</h1>
+  <div class="meta">Contact sheet · 2&Prime; &times; 3.5&Prime; portrait · N°01&ndash;03<button class="print-btn" onclick="window.print()">Print sheet</button></div>
+</header>
+<main class="sheet">
+  <div class="cell"><iframe src="card-01-tessellate.html" title="Card 01 — Tessellate"></iframe><label>01 · Tessellate</label></div>
+  <div class="cell"><iframe src="card-02-engraving.html" title="Card 02 — Engraving"></iframe><label>02 · Engraving</label></div>
+  <div class="cell"><iframe src="card-03-recursion.html" title="Card 03 — Recursion"></iframe><label>03 · Recursion</label></div>
+</main>
+</body>
+</html>

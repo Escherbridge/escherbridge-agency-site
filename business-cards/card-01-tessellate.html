@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EscherBridge — Card 01 · Tessellate</title>
+<style>
+  /* exact trim size: 2in x 3.5in portrait, zero-margin page */
+  @page { size: 2in 3.5in; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { width: 2in; height: 3.5in; }
+  body { background: #0a0a08; font-family: Arial, sans-serif; }
+  .card { position: relative; width: 2in; height: 3.5in; overflow: hidden; background: #0a0a08; }
+  #gl, .static-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .static-bg { display: none; }
+  /* static first-frame fallback: 3-tone rhombille ("cube illusion") in ink tones */
+  .static-bg {
+    background-color: #0a0a08;
+    background-image: repeating-conic-gradient(from -30deg,
+      #191911 0deg 60deg, #0e0e0a 60deg 120deg, #212117 120deg 180deg);
+    background-size: .30in .26in;
+  }
+  .no-webgl #gl { display: none; }
+  .no-webgl .static-bg { display: block; }
+  @media print {
+    body { margin: 0; }
+    #gl { display: none !important; }
+    .static-bg { display: block !important; }
+  }
+  .content { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; padding: .15in .16in .13in; color: #eeeae0; }
+  .logo { width: .58in; height: auto; display: block; }
+  .spacer { flex: 1; }
+  .name { font-family: "Arial Black", Arial, sans-serif; font-weight: 900; font-size: 13.5pt; line-height: .92; letter-spacing: -.02em; text-transform: uppercase; }
+  .role { font-family: "Courier New", monospace; font-size: 5.5pt; letter-spacing: .28em; text-transform: uppercase; color: #e34b2f; margin-top: .055in; }
+  .rule { width: .3in; height: 2.5pt; background: #e34b2f; margin: .09in 0; }
+  .contact { font-family: "Courier New", monospace; font-size: 6pt; line-height: 1.75; letter-spacing: .04em; color: rgba(238,234,224,.92); }
+  .foot { display: flex; justify-content: space-between; align-items: baseline; margin-top: .1in; }
+  .wordmark { font-family: "Arial Black", Arial, sans-serif; font-weight: 900; font-size: 7pt; letter-spacing: -.03em; color: #eeeae0; }
+  .serial { font-family: "Courier New", monospace; font-size: 5pt; letter-spacing: .18em; color: rgba(238,234,224,.55); }
+</style>
+</head>
+<body>
+<div class="card">
+  <canvas id="gl"></canvas>
+  <div class="static-bg"></div>
+  <div class="content">
+    <!-- inline brand mark (assets/LogoTransparentWhite.svg geometry) -->
+    <svg class="logo" viewBox="0 0 541 541" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2"><g fill="#eeeae0"><path d="M408.752,281.982l-33.577,0.086c-1.246,0.004 -2.442,-0.568 -3.323,-1.589c-0.882,-1.02 -1.378,-2.406 -1.378,-3.851l0,-71.168c0,-10.172 -1.862,-30.195 -17.839,-47.571c-16.79,-18.259 -48.516,-33.295 -107.865,-32.85c-47.355,0.355 -75.117,13.425 -91.301,29.33c-23.104,22.708 -21.767,50.746 -21.767,50.746c0.006,0.115 0.009,0.23 0.009,0.345l0,25.719l27.1,-0.075c1.661,-0.005 3.255,0.757 4.431,2.118c1.177,1.361 1.837,3.209 1.837,5.135l0,78.899c0,11.121 1.864,33.029 18.131,52.027c17.149,20.028 49.601,36.397 110.221,35.908c48.319,-0.389 76.678,-14.629 93.191,-32.057c23.502,-24.805 22.141,-55.449 22.141,-55.449c-0.007,-0.143 -0.011,-0.286 -0.011,-0.429l0,-35.274Z"/><path d="M48.806,282.034l-12.313,0c-2.59,0 -4.69,-2.435 -4.69,-5.44l0,-213.55c0,-2.999 2.093,-5.432 4.678,-5.44l433.315,-1.332c1.246,-0.004 2.443,0.567 3.325,1.588c0.882,1.02 1.378,2.406 1.378,3.852l-0,169.357l27.909,0c3.454,0 6.254,3.248 6.254,7.254l-0,236.748c-0,3.998 -2.789,7.242 -6.236,7.253l-447.349,1.477c-1.661,0.006 -3.257,-0.756 -4.433,-2.117c-1.177,-1.361 -1.838,-3.209 -1.838,-5.136l-0,-194.514Zm10.658,-25.532c9.985,4.173 17.002,14.033 17.002,25.532l0,174.036l404.535,-1.336l0,-196.004l-6.502,0c-15.277,0 -27.661,-12.384 -27.661,-27.661l0,-147.066l-387.374,1.191l-0,171.308Z"/></g></svg>
+    <div class="spacer"></div>
+    <div class="name">Ahmed<br>Zaher</div>
+    <div class="role">Partner — Engineering</div>
+    <div class="rule"></div>
+    <div class="contact">
+      ada@escherbridge.com<br>
+      +1 (415) 555-0117<br>
+      escherbridge.com
+    </div>
+    <div class="foot">
+      <div class="wordmark">ESCHERBRIDGE</div>
+      <div class="serial">N°01/03</div>
+    </div>
+  </div>
+</div>
+
+<!-- fragment shader: animated rhombille tessellation (Escher cube illusion) -->
+<script id="fs" type="x-shader/x-fragment">
+precision highp float;
+uniform vec2 r; uniform float t;
+float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }
+void main(){
+  vec2 uv = (gl_FragCoord.xy - .5*r)/r.y;
+  float an = t*.05;
+  vec2 p = mat2(cos(an),-sin(an),sin(an),cos(an)) * uv * (6.2 + .9*sin(t*.22));
+  vec2 h = vec2(1., 1.7320508);
+  vec2 q1 = mod(p,h) - h*.5, q2 = mod(p - h*.5, h) - h*.5;
+  vec2 g = dot(q1,q1) < dot(q2,q2) ? q1 : q2;
+  vec2 id = p - g;
+  float s1 = g.y, s2 = dot(g, vec2(.8660254,-.5)), s3 = dot(g, vec2(-.8660254,-.5));
+  float mn = min(s1, min(s2,s3)), mx = max(s1, max(s2,s3)), mid = s1+s2+s3-mn-mx;
+  float shade = s1==mx ? 1. : (s2==mx ? .6 : .3);
+  float rnd = hash(id);
+  float pulse = .7 + .3*sin(t*.7 + (id.x+id.y)*1.4);
+  vec3 ink = vec3(.039,.039,.031), paper = vec3(.933,.918,.878);
+  vec3 acid = vec3(.89,.294,.184), lime = vec3(.78,1.,.208);
+  vec3 col = ink + paper*shade*.14*pulse;
+  if (rnd > .97)      col = mix(col, acid, .6*pulse);
+  else if (rnd < .025) col = mix(col, lime, .5*pulse);
+  col *= .5 + .5*smoothstep(0., .05, mx-mid);
+  float hd = max(abs(s1), max(abs(s2), abs(s3)));
+  col *= .35 + .65*smoothstep(0., .04, .5-hd);
+  col *= 1. - dot(uv*.75, uv*.75);
+  col += (hash(gl_FragCoord.xy + t) - .5)*.02;
+  gl_FragColor = vec4(col, 1.);
+}
+</script>
+<script>
+/* minimal raw-WebGL fullscreen-quad driver; falls back to .static-bg */
+(function(){
+  var c = document.getElementById('gl');
+  var gl = c.getContext('webgl', { antialias: true });
+  if (!gl) { document.body.classList.add('no-webgl'); return; }
+  function sh(type, src){ var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+  var p = gl.createProgram();
+  gl.attachShader(p, sh(gl.VERTEX_SHADER, 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}'));
+  gl.attachShader(p, sh(gl.FRAGMENT_SHADER, document.getElementById('fs').textContent));
+  gl.linkProgram(p);
+  if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { document.body.classList.add('no-webgl'); return; }
+  gl.useProgram(p);
+  var b = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, b);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  var a = gl.getAttribLocation(p, 'a');
+  gl.enableVertexAttribArray(a);
+  gl.vertexAttribPointer(a, 2, gl.FLOAT, false, 0, 0);
+  var uR = gl.getUniformLocation(p, 'r'), uT = gl.getUniformLocation(p, 't');
+  function rs(){
+    c.width = c.clientWidth * (window.devicePixelRatio || 1);
+    c.height = c.clientHeight * (window.devicePixelRatio || 1);
+    gl.viewport(0, 0, c.width, c.height);
+    gl.uniform2f(uR, c.width, c.height);
+  }
+  window.addEventListener('resize', rs); rs();
+  (function frame(ms){ gl.uniform1f(uT, ms*.001); gl.drawArrays(gl.TRIANGLES, 0, 3); requestAnimationFrame(frame); })(0);
+})();
+</script>
+</body>
+</html>
