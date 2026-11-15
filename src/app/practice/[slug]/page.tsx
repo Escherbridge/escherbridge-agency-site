@@ -20,7 +20,7 @@ export default async function PracticePage({ params }: { params: Promise<{ slug:
       <p className="eyebrow">01 / The premise</p><h2>Begin with the shape of the problem.</h2><p className="practice-lede">{practice.premise}</p>
       <p className="eyebrow">02 / How the engagement works</p><ol>{practice.approach.map((item) => <li key={item}>{item}</li>)}</ol>
     </article></section>
-    <section className="practice-evidence"><div className="section-heading light"><p className="section-index">(REPRESENTATIVE EVIDENCE / 03)</p><h2>Work as<br /><em>proof.</em></h2></div><div className="evidence-grid">
+    <section className="practice-evidence"><div className="section-heading light"><p className="section-index">(REPRESENTATIVE EVIDENCE / 03)</p><h2>Work as{" "}<br /><em>proof.</em></h2></div><div className="evidence-grid">
       {practice.evidence.map((item, index) => { const content = <><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.detail}</p>{item.href && <b>Read retrospective ↗</b>}</>; return item.href ? <Link href={item.href} key={item.title}>{content}</Link> : <article key={item.title}>{content}</article>; })}
     </div></section>
     <section className="practice-cta"><p className="eyebrow">04 / Start here</p><h2>{practice.closing}</h2><div><Link className="brutal-button" href="/#contact">Start a conversation <span>↗</span></Link><Link className="text-link" href="/work">Explore the archive →</Link></div></section>
