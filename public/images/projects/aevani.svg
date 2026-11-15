@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Aevani growing systems</title>
+  <desc id="desc">Greenhouse bay geometry above field rows and an 8 percent flat marketplace seal.</desc>
+  <rect width="800" height="520" fill="#f3f0e6"/>
+  <path d="M56 350c120-58 240-72 370-36 125 34 225 24 318-16v170H56z" fill="#d9e7cc" stroke="#0a0a08" stroke-width="10"/>
+  <path d="M120 300V185L260 95l140 90v115" fill="none" stroke="#0a0a08" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M260 95v205M180 147v153M340 147v153M120 225h280" stroke="#0a0a08" stroke-width="8"/>
+  <circle cx="595" cy="195" r="88" fill="#c7ff35" stroke="#0a0a08" stroke-width="14"/>
+  <path d="M555 195c18-32 54-46 84-26-10 38-46 54-84 26z" fill="#0a0a08"/>
+  <text x="56" y="492" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#0a0a08">AEVANI · FIELD GUIDES &amp; GROWER MARKETPLACE</text>
+</svg>

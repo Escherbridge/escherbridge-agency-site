@@ -16,7 +16,7 @@ export const practices: Practice[] = [
     premise: "The earliest version of a product is not merely a smaller version of the finished one. It is an instrument for discovering what the product must become. Escherbridge works across interface, behavior, and infrastructure so that each implementation decision sharpens the premise instead of obscuring it.",
     approach: ["Frame the consequential user and system questions before prescribing a stack.", "Build a thin but complete path through interface, application logic, and deployment.", "Use working software to expose assumptions, then iterate toward a durable product shape."],
     evidence: [
-      { title: "Ardanova", detail: "A focused product system developed from interaction premise through production architecture.", href: "/work/ardanova" },
+      { title: "ArdaNova", detail: "A cooperative stewardship and project platform built around solutionary thinking, shared ownership, and social ecology.", href: "/work/ardanova" },
       { title: "PlantGeo", detail: "A spatial product that makes place-based information tangible and useful.", href: "/work/plantgeo" },
       { title: "SurrealForge", detail: "Creative tooling where expressive interaction and technical rigor share the same surface.", href: "/work/surrealforge" },
     ],
@@ -49,11 +49,11 @@ export const practices: Practice[] = [
   {
     slug: "fractional-cto", number: "04", title: "Fractional CTO",
     summary: "Hands-on technical stewardship for startups and mission-driven organizations that need senior judgment without a full-time executive hire.",
-    premise: "Ahmed is currently fractional CTO at Elevate Impact, working with cross-functional teams through rewrites, pivots, and changing product landscapes. The role stays close to the code and the product: clarifying tradeoffs, unblocking delivery, and helping the technical system change at the same pace as the organization around it.",
+    premise: "Ahmed leads governance and engineering in partnership with OVERSEASGENAI, working closely with venture teams through architecture, product rewrites, and complex delivery. The role stays close to the code and the product: clarifying tradeoffs, unblocking delivery, and helping technical systems evolve alongside the organizations around them.",
     approach: ["Translate product shifts into an executable technical sequence without freezing ongoing delivery.", "Pair with design, product, engineering, and domain specialists on the decisions between disciplines.", "Contribute architecture and production code where hands-on work creates the clearest path forward."],
     evidence: [
-      { title: "Elevate Impact", detail: "Current fractional CTO practice across cross-functional delivery, platform rewrites, pivots, and an evolving product landscape." },
-      { title: "Azoa", detail: "A living system for autonomous zones of action, developed across product and technical boundaries.", href: "/work/azoa" },
+      { title: "OVERSEASGENAI", detail: "Governance and engineering practice in partnership with the OVERSEASGENAI venture foundry.", href: "/partners" },
+      { title: "AZOA", detail: "Durable workflow execution and fail-closed guards across multi-party boundaries.", href: "/work/azoa" },
       { title: "NEOS", detail: "A platform shaped through distributed architecture, interface systems, and practical implementation.", href: "/work/neos" },
     ],
     closing: "This is senior technical judgment expressed through the work itself - practical, collaborative, and available at the moment it matters.",

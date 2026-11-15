@@ -10,7 +10,7 @@ import { practices } from "@/lib/practices";
 
 export default function Home() {
   const projects = getAllProjects();
-  const tickerItems = ["Product Engineering","AI Systems","Creative Technology","Distributed Architecture","TypeScript","React","Svelte",".NET","Python","Node.js","Azure","AWS","Docker","Solana","Algorand","PostgreSQL","MongoDB","GCP","Rust","Elixir","Clojure","Next.js","Tailwind CSS","Power BI","SQL Server","Data Engineering","ETL Pipelines","Data Warehousing","Azure Synapse"];
+  const tickerItems = ["Product Engineering","AI Systems","Creative Technology","Distributed Architecture","TypeScript","React","Svelte",".NET","Python","Node.js","Azure","AWS","Docker","SurrealDB","PostGIS","PostgreSQL","MongoDB","GCP","Rust","Elixir","Clojure","Next.js","Tailwind CSS","Power BI","SQL Server","Data Engineering","ETL Pipelines","Data Warehousing","Azure Synapse"];
   const tickerText = `${tickerItems.join(" ✳ ")} ✳ `;
 
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         <section className="hero-plate">
           <div className="hero-copy">
             <p className="eyebrow">Independent software studio / Boise + distributed</p>
-            <h1>Building bridges<br /><em>between vision</em><br />and code.</h1>
+            <h1>Building bridges <br /><em>between vision</em> <br />and code.</h1>
             <p className="hero-deck">Escherbridge turns ambitious ideas into software with a point of view — across AI, spatial computing, decentralized systems, and the web.</p>
             <div className="hero-actions">
               <Link className="brutal-button" href="/work">Enter the archive <span>↗</span></Link>
@@ -38,7 +38,7 @@ export default function Home() {
         <section className="manifesto page-grid">
           <p className="section-index">(POSITION / 02)</p>
           <div>
-            <h2>Neither agency<br />nor factory.</h2>
+            <h2>Neither agency <br />nor factory.</h2>
             <p>Escherbridge is Ahmed Zaher’s independent development practice: design-minded engineering for products whose shape is not obvious yet. The work moves between interface, infrastructure, and experimentation without losing the thread.</p>
           </div>
           <aside>Software can be precise without being sterile. Useful without being generic. Complex without becoming illegible.</aside>
@@ -54,7 +54,7 @@ export default function Home() {
         </section>
 
         <section id="work" className="project-section">
-          <div className="section-heading light"><p className="section-index">(FULL ARCHIVE / 04)</p><h2>Built things,<br /><em>reconsidered.</em></h2><Link href="/work">Browse the index →</Link></div>
+          <div className="section-heading light"><p className="section-index">(FULL ARCHIVE / 04)</p><h2>Built things, <br /><em>reconsidered.</em></h2><Link href="/work">Browse the index →</Link></div>
           <ProjectCarousel projects={projects} />
         </section>
 
@@ -70,8 +70,8 @@ export default function Home() {
         </section>
 
         <section className="contact-plate">
-          <p className="eyebrow">Have a difficult thing worth making?</p><h2>Let’s make the<br />impossible <em>legible.</em></h2>
-          <a className="contact-email" href="mailto:contact@ahmedzaher.net">contact@ahmedzaher.net ↗</a>
+          <p className="eyebrow">Have a difficult thing worth making?</p><h2>Let’s make the <br />impossible <em>legible.</em></h2>
+          <a className="contact-email" href="mailto:contact@escherbridge.com">contact@escherbridge.com ↗</a>
         </section>
         <Contact />
       </main>

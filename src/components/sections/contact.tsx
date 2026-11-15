@@ -116,17 +116,17 @@ export function Contact() {
                   Email
                 </h3>
                 <a
-                  href="mailto:contact@ahmedzaher.net"
+                  href="mailto:contact@escherbridge.com"
                   className="text-foreground-muted hover:text-white transition-colors link-brutal"
                 >
-                  contact@ahmedzaher.net
+                  contact@escherbridge.com
                 </a>
               </div>
               <div>
                 <h3 className="font-heading font-bold text-body-sm uppercase tracking-wider mb-grid-2">
                   Location
                 </h3>
-                <p className="text-foreground-muted">Pacific Northwest, USA</p>
+                <p className="text-foreground-muted">Boise, Idaho</p>
               </div>
             </div>
           </motion.div>
