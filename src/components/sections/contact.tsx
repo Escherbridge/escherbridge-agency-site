@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,7 +16,7 @@ const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
   company: z.string().optional(),
-  inquiryType: z.enum(["project", "consulting", "fractional", "other"]),
+  inquiryType: z.enum(["project", "consulting", "fractional", "registry", "other"]),
   budget: z.enum(["<10k", "10k-25k", "25k-50k", "50k-100k", "100k+", ""]).optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
@@ -27,6 +27,7 @@ const inquiryOptions = [
   { value: "project", label: "New Project" },
   { value: "consulting", label: "Consulting Engagement" },
   { value: "fractional", label: "Fractional CTO" },
+  { value: "registry", label: "Hexon Registry Publishing Access" },
   { value: "other", label: "General Inquiry" },
 ];
 
@@ -47,6 +48,8 @@ export function Contact() {
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -55,6 +58,14 @@ export function Contact() {
       budget: "",
     },
   });
+
+  // A link such as /?inquiry=registry#contact arrives with that inquiry type selected.
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("inquiry");
+    const match = inquiryOptions.find((option) => option.value === requested);
+    if (match) setValue("inquiryType", match.value as ContactFormData["inquiryType"]);
+  }, [setValue]);
+  const isRegistryRequest = watch("inquiryType") === "registry";
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -211,7 +222,11 @@ export function Contact() {
                   <Textarea
                     id="message"
                     label="Message"
-                    placeholder="Tell me about your project..."
+                    placeholder={
+                      isRegistryRequest
+                        ? "What would you like to publish? Package types, where the content comes from and its licence."
+                        : "Tell me about your project..."
+                    }
                     error={errors.message?.message}
                     {...register("message")}
                   />
